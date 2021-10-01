@@ -3,6 +3,7 @@ import { nextFrame } from "./frame.js";
 const { clientWidth, clientHeight } = document.documentElement;
 let ctx = null;
 let y = 0;
+let speed = 1;
 
 function drawBlock(x, y, w, h, color = "#fff") {
   ctx.fillStyle = color;
@@ -21,7 +22,7 @@ function startAnimation() {
       return;
     }
     drawBackground();
-    drawBlock(clientWidth / 2 - 50, y++, 100, 100);
+    drawBlock(clientWidth / 2 - 50, (y += speed += 0.01), 100, 100);
     startAnimation();
   });
 }
